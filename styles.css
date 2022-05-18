@@ -28,3 +28,8 @@ button {
 .name {
   width: 200px;
 }
+
+.delete-item {
+  width: 15px;
+  
+}

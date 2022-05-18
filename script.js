@@ -20,7 +20,7 @@ const listPidors = (list) => {
         el.id
       }">Редактировать</button></td><td><button class="del-name" id="${
         el.id
-      }">Удалить Пидора</button></td></tr>`
+      }"><img class="delete-item" src="https://stackblitz.com/files/web-platform-rvedbs/github/AlxMorgen/web-platform-rvedbs/stash-2022-18-05_08-24-11/delete-friend.png"></button></td></tr>`
   )}</table>`;
 };
 
