@@ -1,3 +1,26 @@
-body {
-  background: orange;
+.input-edit {
+  position: absolute;
+  left: 8px;
+  width: auto;
+  display: none;
+}
+
+.unshadow {
+  width: 200px;
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+td {
+  position: relative;
+}
+button {
+  margin-left: 10px;
+  padding-left: 10px;
+}
+.name {
+  width: 200px;
 }

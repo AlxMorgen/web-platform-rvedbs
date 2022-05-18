@@ -12,7 +12,7 @@ const listPidors = (list) => {
     (el, index) =>
       `<tr><td class="name" id="${el.id}" colspan = "1">${index + 1} - ${
         el.name
-      }</td><td class="input-edit" id="input-edit" ><input id="input-${
+      }</td><td class="input-edit" id="${el.id}" ><input id="input-${
         el.id
       }" value="${el.name}" type="text"/><button class="btn-ok" id="button-${
         el.id
@@ -68,17 +68,10 @@ const editPidor = (event) => {
   const input = tablePidors.querySelector(`#input-${currentID}`);
   const button = tablePidors.querySelector(`#button-${currentID}`);
 
-  input.addEventListener('keyup', (event) => button.disabled = !event.target.value.length)
-  
-  // id = event.target.id;
-  // searchName = pidors[id];
-  // index = idPidors.findIndex((el) => el.name === searchName);
-  // newName = inputName.firstChild.value;
-  // pidors[id] = newName;
-  // idPidors[index] = {
-  //   name: newName,
-  //   id: id,
-  // };
+  input.addEventListener(
+    'keyup',
+    (event) => (button.disabled = !event.target.value.length)
+  );
 };
 const okPidor = (event) => {
   btnOk = 'btn-ok';
@@ -86,7 +79,7 @@ const okPidor = (event) => {
   if (event.target.className != btnOk) {
     return;
   }
-  id = event.target.id;
+  id = event.target.parentNode.id;
   searchName = pidors[id];
   index = idPidors.findIndex((el) => el.name === searchName);
   newName = inputName.firstChild.value;
@@ -95,11 +88,12 @@ const okPidor = (event) => {
     name: newName,
     id: id,
   };
-  console.log(event.target.id);
+  listPidors(idPidors);
+  console.log(id);
 };
 
 listPidors(idPidors);
-//console.log(document.querySelectorAll('.edit-name'))
+
 tablePidors.addEventListener('click', delPidor);
 
 [...document.querySelectorAll('.edit-name')].forEach((button) =>
@@ -113,12 +107,3 @@ namePidor.addEventListener('keyup', function (event) {
 });
 
 btnNewP.addEventListener('click', newPidor);
-
-// if (newName == '') {
-//   alert('Не можно отставлять пустую строку, например');
-//   return undefined;
-// }
-// if (newName == null) {
-//   alert('Ок, оставим как есть!');
-//   return searchName;
-// }
